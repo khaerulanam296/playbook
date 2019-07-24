@@ -1,8 +1,0 @@
----
-- hosts: all
-  become: true
-  vars:
-     package: vim
-  tasks:
-     - name: Install Package
-       yum: name={{ package }} state=latest
