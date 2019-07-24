@@ -5,5 +5,5 @@
      packages: [ 'vim', 'git', 'curl' ]
   tasks:
      - name: Install Package
-       apt: name={{ item }} state=latest
+       yum: name={{ item }} state=latest
        with_items: "{{ packages }}"
