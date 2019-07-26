@@ -1,0 +1,28 @@
+---
+### SSH
+ssh_port: 22
+ssh_root_login: "yes"
+ssh_password_auth: "no"
+
+
+### YUM
+### YUM
+centos_core_packages:
+  - bash-completion
+  - bzip2
+  - cronie
+  - cronie-anacron
+  - curl
+  - curl-devel
+  - dos2unix
+  - man
+  - nano
+  - net-tools
+  - ntp
+  - ntpdate
+  - rsync
+  - sysstat
+  - unzip
+  - vim
+  - which
+  - wget

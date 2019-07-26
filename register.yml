@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: SSH Task | Checking whether '/usr/bin/firewall-cmd' exists
+      stat:
+          path: /usr/bin/firewall-cmd
+      register: firewall_cmd_check
+
+

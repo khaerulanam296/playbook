@@ -1,0 +1,10 @@
+---
+- name: cPanel Deployment on a new CentOS 7 Server
+  hosts: all
+  any_errors_fatal: true
+  become: true
+  become_user: root
+  become_method: sudo
+  roles:
+    - os-centos                    # check "set-up-centos7defaults/main.yml" first
+

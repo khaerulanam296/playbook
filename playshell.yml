@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  tasks:
+     - name: ALLOW REMOTE DOMAIN
+       shell: whmapi1 set_tweaksetting key=allowremotedomains value=1
+       tags: remotedomain
+
+     - name: ALLOW UNREGISTERED DOMAIN
+       shell: whmapi1 set_tweaksetting key=allowunregistereddomains value=1
+       tags: unregistereddomain
+
+     - name: ALLOW WEAK CHECKSUMS
+       shell: whmapi1 set_tweaksetting key=allow_weak_checksums value=1
+
+     - name: ALLOW PARK HOST NAME DOMAIN SUB DOMAIN
+       shell: whmapi1 set_tweaksetting key=allowparkhostnamedomainsubdomains value=1
+
+     - name: API SHELL
+       shell: whmapi1 set_tweaksetting key=api_shell value=1

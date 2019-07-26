@@ -1,0 +1,25 @@
+---
+### SSH Management
+- name: Include the ssh tasks file
+  include: ssh.yml
+  when: use_ssh is defined and use_ssh == true
+  tags: sshd
+
+
+- name: YUM Task | Ensuring that yum packages are installed and kept updated
+  yum:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items: "{{ centos_core_packages }}"
+#  async: 1800					# maximum allowed time is 30 minutes
+#  poll: 30					# check every 30 seconds !!!WARNING!!! With default settings, this value should not exceed 59s. Before increasing this value, make sure your ControlPersist exceedes the "async" value, otherwise your session will timeout and the whole setup will fail!
+  tags: yum
+
+#- name: Disable UseRoaming
+#  lineinfile:
+#    dest: /etc/ssh/ssh_config
+#    regexp: "^UseRoaming"
+#    line: "UseRoaming no"
+#    state: present
+#  tags: ssh_client
